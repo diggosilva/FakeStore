@@ -14,14 +14,19 @@ enum FeedViewControllerStates {
 }
 
 class FeedViewModel {
-    var state: Bindable<FeedViewControllerStates> = Bindable(value: .loading)
+    private (set) var state: Bindable<FeedViewControllerStates> = Bindable(value: .loading)
     
-    var newLabel = ""
+    private let service = Service()
     
-    func loadData() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.newLabel = "Carregado!!!"
+    var produtosList: [ProductFeed] = []
+    
+    func loadDataProducts() {
+        service.getProduct { produtos in
+            self.produtosList.append(contentsOf: produtos)
             self.state.value = .loaded
+        } onError: { error in
+            print("ERRRROOOOOUUUU")
+            self.state.value = .error
         }
     }
 }
