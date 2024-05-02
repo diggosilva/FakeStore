@@ -20,7 +20,8 @@ class FeedView: UIView {
         table.translatesAutoresizingMaskIntoConstraints = false
         table.delegate = self
         table.dataSource = self
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        table.register(FeedCell.self, forCellReuseIdentifier: FeedCell.identifier)
+        table.separatorStyle = .none
         return table
     }()
     
@@ -61,8 +62,8 @@ extension FeedView: UITableViewDelegate, UITableViewDataSource {
         return 5
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "Produto aqui"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: FeedCell.identifier, for: indexPath) as? FeedCell else { return UITableViewCell() }
+//        cell.textLabel?.text = "Produto aqui"
         return cell
     }
 }
