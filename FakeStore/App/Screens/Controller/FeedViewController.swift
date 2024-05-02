@@ -20,8 +20,14 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavBar()
+        setDelegate()
         handleStates()
         viewModel.loadDataProducts()
+    }
+    
+    func setDelegate() {
+        feedView.tableView.delegate = self
+        feedView.tableView.dataSource = self
     }
     
     private func setNavBar() {
@@ -62,5 +68,20 @@ class FeedViewController: UIViewController {
         alert.addAction(ok)
         alert.addAction(nok)
         present(alert, animated: true)
+    }
+}
+
+extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfRows()
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: FeedCell.identifier, for: indexPath) as? FeedCell else { return UITableViewCell() }
+        cell.configure(productFeed: viewModel.cellForRowAt(indexPath: indexPath))
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

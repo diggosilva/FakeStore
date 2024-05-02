@@ -20,6 +20,14 @@ class FeedViewModel {
     
     var produtosList: [ProductFeed] = []
     
+    func numberOfRows() -> Int {
+        return produtosList.count
+    }
+    
+    func cellForRowAt(indexPath: IndexPath) -> ProductFeed {
+        return produtosList[indexPath.row]
+    }
+    
     func loadDataProducts() {
         service.getProduct { produtos in
             self.produtosList.append(contentsOf: produtos)

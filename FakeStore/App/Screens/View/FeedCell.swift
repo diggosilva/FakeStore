@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class FeedCell: UITableViewCell {
     static let identifier = "FeedCell"
@@ -22,8 +23,8 @@ class FeedCell: UITableViewCell {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(systemName: "person.fill")
-        image.contentMode = .scaleAspectFill
-        image.backgroundColor = .systemMint
+        image.contentMode = .scaleAspectFit
+        image.backgroundColor = .white
         image.clipsToBounds =  true
         image.layer.cornerRadius = 10
         return image
@@ -103,6 +104,16 @@ class FeedCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(productFeed: ProductFeed) {
+        guard let url = URL(string: productFeed.image) else { return }
+        imageProduct.sd_setImage(with: url)
+        labelTitle.text = productFeed.title
+        labelCategory.text = productFeed.category.menSClothing
+        labelRate.text = "\(productFeed.rating)"
+        labelDescription.text = productFeed.description
+        labelPrice.text = "$\(String(format: "%.2f", productFeed.price))"
     }
     
     private func setupView() {
