@@ -17,6 +17,7 @@
 		92AC28D62BE3D4B500CC2712 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AC28D52BE3D4B500CC2712 /* Service.swift */; };
 		92AC28D82BE3D63700CC2712 /* ProductResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AC28D72BE3D63700CC2712 /* ProductResponse.swift */; };
 		92AC28DA2BE3D65300CC2712 /* ProductFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AC28D92BE3D65300CC2712 /* ProductFeed.swift */; };
+		92AC28E32BE3E22000CC2712 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AC28E22BE3E22000CC2712 /* FeedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		92AC28D52BE3D4B500CC2712 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		92AC28D72BE3D63700CC2712 /* ProductResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductResponse.swift; sourceTree = "<group>"; };
 		92AC28D92BE3D65300CC2712 /* ProductFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFeed.swift; sourceTree = "<group>"; };
+		92AC28E22BE3E22000CC2712 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,12 +75,10 @@
 		92AC28CF2BE3CE6400CC2712 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				92AC28BF2BE3CDA100CC2712 /* FeedViewController.swift */,
-				92AC28D12BE3CFA200CC2712 /* FeedViewModel.swift */,
-				92AC28D52BE3D4B500CC2712 /* Service.swift */,
-				92AC28D92BE3D65300CC2712 /* ProductFeed.swift */,
-				92AC28D72BE3D63700CC2712 /* ProductResponse.swift */,
-				92AC28D32BE3CFE000CC2712 /* Bindable.swift */,
+				92AC28DE2BE3E1B000CC2712 /* Model */,
+				92AC28DD2BE3E1AB00CC2712 /* Network */,
+				92AC28DC2BE3E1A300CC2712 /* Screens */,
+				92AC28DB2BE3E19A00CC2712 /* Utils */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -93,6 +93,65 @@
 				92AC28C92BE3CDA200CC2712 /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		92AC28DB2BE3E19A00CC2712 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				92AC28D32BE3CFE000CC2712 /* Bindable.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		92AC28DC2BE3E1A300CC2712 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				92AC28E12BE3E1E800CC2712 /* Controller */,
+				92AC28E02BE3E1E800CC2712 /* View */,
+				92AC28DF2BE3E1E600CC2712 /* ViewModel */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		92AC28DD2BE3E1AB00CC2712 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				92AC28D52BE3D4B500CC2712 /* Service.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		92AC28DE2BE3E1B000CC2712 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				92AC28D92BE3D65300CC2712 /* ProductFeed.swift */,
+				92AC28D72BE3D63700CC2712 /* ProductResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		92AC28DF2BE3E1E600CC2712 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				92AC28D12BE3CFA200CC2712 /* FeedViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		92AC28E02BE3E1E800CC2712 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				92AC28E22BE3E22000CC2712 /* FeedView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		92AC28E12BE3E1E800CC2712 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				92AC28BF2BE3CDA100CC2712 /* FeedViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92AC28D42BE3CFE000CC2712 /* Bindable.swift in Sources */,
+				92AC28E32BE3E22000CC2712 /* FeedView.swift in Sources */,
 				92AC28DA2BE3D65300CC2712 /* ProductFeed.swift in Sources */,
 				92AC28C02BE3CDA100CC2712 /* FeedViewController.swift in Sources */,
 				92AC28D82BE3D63700CC2712 /* ProductResponse.swift in Sources */,

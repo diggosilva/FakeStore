@@ -10,6 +10,12 @@ import UIKit
 class FeedViewController: UIViewController {
     
     let viewModel = FeedViewModel()
+    let feedView = FeedView()
+    
+    override func loadView() {
+        super.loadView()
+        view = feedView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,15 +43,24 @@ class FeedViewController: UIViewController {
     }
     
     func showLoadingState() {
-        
+        feedView.removeFromSuperview()
     }
     
     func showLoadedState() {
-  
+        feedView.spinner.stopAnimating()
+        feedView.tableView.reloadData()
     }
     
     func showErrorState() {
-        
+        let alert = UIAlertController(title: "Ocorreu um erro!", message: "Tentar novamente?", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Sim", style: .default) { action in
+            print("Clicou no botão SIM")
+        }
+        let nok = UIAlertAction(title: "Não", style: .cancel) { action in
+            print("Clicou no botão NÃO")
+        }
+        alert.addAction(ok)
+        alert.addAction(nok)
+        present(alert, animated: true)
     }
-    
 }
