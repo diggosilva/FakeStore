@@ -11,21 +11,11 @@ struct ProductFeed: Codable {
     let title: String
     let price: Double
     let description: String
-    let category: Category
+    let category: String
     let image: String
     let rating: Double
     
-    struct Category: Codable {
-        let electronics: String
-        let jewelery: String
-        let menSClothing: String
-        let womenSClothing: String
-        
-        enum CodgingKeys: String, CodingKey {
-            case electronics = "electronics"
-            case jewelery = "jewelery"
-            case menSClothing = "men's clothing"
-            case womenSClothing = "women's clothing"
-        }
+    var priceFormatted: String {
+        return "$\(String(format: "%.2f", price))"
     }
 }

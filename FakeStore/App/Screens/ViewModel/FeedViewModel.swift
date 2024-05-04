@@ -18,22 +18,36 @@ class FeedViewModel {
     
     private let service = Service()
     
-    var produtosList: [ProductFeed] = []
+    var sectionList: [[ProductFeed]] = []
+    var categoryList: [String] = ["electronics", "jewelery", "men's clothing", "women's clothing"]
     
-    func numberOfRows() -> Int {
-        return produtosList.count
+    func numbersOfSection() -> Int {
+        sectionList.count
+    }
+    
+    func numberOfRows( numberOfRowsInSection section: Int) -> Int {
+        return sectionList[section].count
     }
     
     func cellForRowAt(indexPath: IndexPath) -> ProductFeed {
-        return produtosList[indexPath.row]
+        return sectionList[indexPath.section][indexPath.row]
+    }
+    
+    func tableView(titleForHeaderInSection section: Int) -> String? {
+        return "\(categoryList[section].capitalized)"
     }
     
     func loadDataProducts() {
-        service.getProduct { produtos in
-            self.produtosList.append(contentsOf: produtos)
+        service.getProducts { produtos in
+            let electronics = produtos.filter({ $0.category == "electronics" })
+            let jewelery = produtos.filter({ $0.category == "jewelery" })
+            let menSClothing = produtos.filter({ $0.category == "men's clothing" })
+            let womenSClothing = produtos.filter({ $0.category == "women's clothing" })
+            
+            self.sectionList.append(contentsOf: [electronics, jewelery, menSClothing, womenSClothing])
+            
             self.state.value = .loaded
         } onError: { error in
-            print("ERRRROOOOOUUUU")
             self.state.value = .error
         }
     }

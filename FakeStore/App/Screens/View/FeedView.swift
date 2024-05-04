@@ -23,6 +23,16 @@ class FeedView: UIView {
         return table
     }()
     
+    lazy var labelError: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Tente novamente mais tarde!"
+        label.font = .systemFont(ofSize: 18, weight: .bold)
+        label.numberOfLines = 0
+        label.isHidden = true
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
         setupView()
@@ -40,6 +50,7 @@ class FeedView: UIView {
     private func setHierarchy () {
         addSubview(tableView)
         addSubview(spinner)
+        addSubview(labelError)
     }
     
     private func setConstraints() {
@@ -51,6 +62,9 @@ class FeedView: UIView {
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            
+            labelError.centerXAnchor.constraint(equalTo: centerXAnchor),
+            labelError.centerYAnchor.constraint(equalTo: centerYAnchor),
         ])
     }
 }

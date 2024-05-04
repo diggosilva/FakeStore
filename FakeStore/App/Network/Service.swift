@@ -14,7 +14,7 @@ protocol ServiceProtocol {
 class Service: ServiceProtocol {
     var dataTask: URLSessionDataTask?
     
-    func getProduct(onSuccess: @escaping([ProductFeed]) -> Void, onError: @escaping(Error) -> Void) {
+    func getProducts(onSuccess: @escaping([ProductFeed]) -> Void, onError: @escaping(Error) -> Void) {
         guard let url = URL(string: "https://fakestoreapi.com/products") else { return }
         
         dataTask = URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
@@ -29,18 +29,8 @@ class Service: ServiceProtocol {
                         var productFeed: [ProductFeed] = []
                         
                         for prod in productResponse {
-                            productFeed.append(
-                                ProductFeed(
-                                    title: prod.title,
-                                    price: prod.price,
-                                    description: prod.description,
-                                    category: ProductFeed.Category.init(
-                                        electronics: prod.category.rawValue,
-                                        jewelery: prod.category.rawValue,
-                                        menSClothing: prod.category.rawValue,
-                                        womenSClothing: prod.category.rawValue),
-                                    image: prod.image,
-                                    rating: prod.rating.rate))
+                            productFeed.append(ProductFeed(title: prod.title,price: prod.price, description: prod.description,
+                                                           category: prod.category.rawValue,image: prod.image, rating: prod.rating.rate))
                         }
                         onSuccess(productFeed)
                         print("DEBUG: Produtos.. \(productFeed)")

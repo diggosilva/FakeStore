@@ -110,10 +110,10 @@ class FeedCell: UITableViewCell {
         guard let url = URL(string: productFeed.image) else { return }
         imageProduct.sd_setImage(with: url)
         labelTitle.text = productFeed.title
-        labelCategory.text = productFeed.category.menSClothing
+        labelCategory.text = productFeed.category
         labelRate.text = "\(productFeed.rating)"
         labelDescription.text = productFeed.description
-        labelPrice.text = "$\(String(format: "%.2f", productFeed.price))"
+        labelPrice.text = productFeed.priceFormatted
     }
     
     private func setupView() {

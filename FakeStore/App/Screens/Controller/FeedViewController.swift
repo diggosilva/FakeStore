@@ -60,10 +60,13 @@ class FeedViewController: UIViewController {
     func showErrorState() {
         let alert = UIAlertController(title: "Ocorreu um erro!", message: "Tentar novamente?", preferredStyle: .alert)
         let ok = UIAlertAction(title: "Sim", style: .default) { action in
-            print("Clicou no botão SIM")
+            self.feedView.spinner.startAnimating()
+            self.viewModel.loadDataProducts()
         }
         let nok = UIAlertAction(title: "Não", style: .cancel) { action in
-            print("Clicou no botão NÃO")
+            self.feedView.tableView.isHidden = true
+            self.feedView.spinner.stopAnimating()
+            self.feedView.labelError.isHidden = false
         }
         alert.addAction(ok)
         alert.addAction(nok)
@@ -72,9 +75,14 @@ class FeedViewController: UIViewController {
 }
 
 extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRows()
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.numbersOfSection()
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfRows(numberOfRowsInSection: section)
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FeedCell.identifier, for: indexPath) as? FeedCell else { return UITableViewCell() }
         cell.configure(productFeed: viewModel.cellForRowAt(indexPath: indexPath))
@@ -83,5 +91,9 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return viewModel.tableView(titleForHeaderInSection: section)
     }
 }
