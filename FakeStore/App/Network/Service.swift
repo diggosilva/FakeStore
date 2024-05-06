@@ -11,8 +11,8 @@ protocol ServiceProtocol {
     var dataTask: URLSessionDataTask? { get set }
 }
 
-class Service: ServiceProtocol {
-    var dataTask: URLSessionDataTask?
+final class Service: ServiceProtocol {
+    internal var dataTask: URLSessionDataTask?
     
     func getProducts(onSuccess: @escaping([ProductFeed]) -> Void, onError: @escaping(Error) -> Void) {
         guard let url = URL(string: "https://fakestoreapi.com/products") else { return }

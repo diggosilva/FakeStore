@@ -25,7 +25,7 @@ class FeedViewController: UIViewController {
         viewModel.loadDataProducts()
     }
     
-    func setDelegate() {
+    private func setDelegate() {
         feedView.tableView.delegate = self
         feedView.tableView.dataSource = self
     }
@@ -35,7 +35,7 @@ class FeedViewController: UIViewController {
         view.backgroundColor = .systemBackground
     }
     
-    func handleStates() {
+    private func handleStates() {
         viewModel.state.bind { states in
             switch states {
             case .loading:
@@ -48,16 +48,16 @@ class FeedViewController: UIViewController {
         }
     }
     
-    func showLoadingState() {
+    private func showLoadingState() {
         feedView.removeFromSuperview()
     }
     
-    func showLoadedState() {
+    private func showLoadedState() {
         feedView.spinner.stopAnimating()
         feedView.tableView.reloadData()
     }
     
-    func showErrorState() {
+    private func showErrorState() {
         let alert = UIAlertController(title: "Ocorreu um erro!", message: "Tentar novamente?", preferredStyle: .alert)
         let ok = UIAlertAction(title: "Sim", style: .default) { action in
             self.feedView.spinner.startAnimating()
@@ -80,7 +80,7 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRows(numberOfRowsInSection: section)
+        return viewModel.numberOfRowsInSection(numberOfRowsInSection: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

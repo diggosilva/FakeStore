@@ -18,33 +18,39 @@ class FeedViewModel {
     
     private let service = Service()
     
-    var sectionList: [[ProductFeed]] = []
-    var categoryList: [String] = ["electronics", "jewelery", "men's clothing", "women's clothing"]
+    private var sectionList: [Section] = []
     
     func numbersOfSection() -> Int {
         sectionList.count
     }
     
-    func numberOfRows( numberOfRowsInSection section: Int) -> Int {
-        return sectionList[section].count
+    func numberOfRowsInSection( numberOfRowsInSection section: Int) -> Int {
+        return sectionList[section].list.count
     }
     
     func cellForRowAt(indexPath: IndexPath) -> ProductFeed {
-        return sectionList[indexPath.section][indexPath.row]
+        let section = sectionList[indexPath.section]
+        let product = section.list[indexPath.row]
+        return product
     }
     
     func tableView(titleForHeaderInSection section: Int) -> String? {
-        return "\(categoryList[section].capitalized)"
+        return "\(sectionList[section].nome.capitalized)"
     }
     
     func loadDataProducts() {
         service.getProducts { produtos in
-            let electronics = produtos.filter({ $0.category == "electronics" })
-            let jewelery = produtos.filter({ $0.category == "jewelery" })
-            let menSClothing = produtos.filter({ $0.category == "men's clothing" })
-            let womenSClothing = produtos.filter({ $0.category == "women's clothing" })
+            let electronics = produtos.filter({ $0.category == CategoryProduct.electronics.rawValue })
+            let jewelery = produtos.filter({ $0.category == CategoryProduct.jewelery.rawValue })
+            let menSClothing = produtos.filter({ $0.category == CategoryProduct.menSClothing.rawValue })
+            let womenSClothing = produtos.filter({ $0.category == CategoryProduct.womenSClothing.rawValue })
             
-            self.sectionList.append(contentsOf: [electronics, jewelery, menSClothing, womenSClothing])
+            let sectionElectronics = Section(nome: CategoryProduct.electronics.rawValue, list: electronics)
+            let sectionJewelery = Section(nome: CategoryProduct.jewelery.rawValue, list: jewelery)
+            let sectionMenSClothing = Section(nome: CategoryProduct.menSClothing.rawValue, list: menSClothing)
+            let sectionWomenSClothing = Section(nome: CategoryProduct.womenSClothing.rawValue, list: womenSClothing)
+            
+            self.sectionList.append(contentsOf: [sectionElectronics, sectionJewelery, sectionMenSClothing, sectionWomenSClothing])
             
             self.state.value = .loaded
         } onError: { error in
