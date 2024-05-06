@@ -19,10 +19,3 @@ struct ProductFeed: Codable {
         return "$\(String(format: "%.2f", price))"
     }
 }
-
-enum CategoryProduct: String {
-    case electronics
-    case jewelery
-    case menSClothing = "men's clothing"
-    case womenSClothing = "women's clothing"
-}

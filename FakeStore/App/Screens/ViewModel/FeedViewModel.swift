@@ -35,23 +35,17 @@ class FeedViewModel {
     }
     
     func tableView(titleForHeaderInSection section: Int) -> String? {
-        return "\(sectionList[section].nome.capitalized)"
+        return "\(sectionList[section].categoryProduct)".capitalized
     }
     
     func loadDataProducts() {
         service.getProducts { produtos in
-            let electronics = produtos.filter({ $0.category == CategoryProduct.electronics.rawValue })
-            let jewelery = produtos.filter({ $0.category == CategoryProduct.jewelery.rawValue })
-            let menSClothing = produtos.filter({ $0.category == CategoryProduct.menSClothing.rawValue })
-            let womenSClothing = produtos.filter({ $0.category == CategoryProduct.womenSClothing.rawValue })
-            
-            let sectionElectronics = Section(nome: CategoryProduct.electronics.rawValue, list: electronics)
-            let sectionJewelery = Section(nome: CategoryProduct.jewelery.rawValue, list: jewelery)
-            let sectionMenSClothing = Section(nome: CategoryProduct.menSClothing.rawValue, list: menSClothing)
-            let sectionWomenSClothing = Section(nome: CategoryProduct.womenSClothing.rawValue, list: womenSClothing)
+            let sectionElectronics = Section(categoryProduct: .electronics, list: produtos)
+            let sectionJewelery = Section(categoryProduct: .jewelery, list: produtos)
+            let sectionMenSClothing = Section(categoryProduct: .menSClothing, list: produtos)
+            let sectionWomenSClothing = Section(categoryProduct: .womenSClothing, list: produtos)
             
             self.sectionList.append(contentsOf: [sectionElectronics, sectionJewelery, sectionMenSClothing, sectionWomenSClothing])
-            
             self.state.value = .loaded
         } onError: { error in
             self.state.value = .error
