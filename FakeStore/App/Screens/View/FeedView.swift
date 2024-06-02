@@ -61,7 +61,7 @@ class FeedView: UIView {
             tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
             labelError.centerXAnchor.constraint(equalTo: centerXAnchor),
             labelError.centerYAnchor.constraint(equalTo: centerYAnchor),

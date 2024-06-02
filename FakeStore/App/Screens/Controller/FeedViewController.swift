@@ -9,8 +9,8 @@ import UIKit
 
 class FeedViewController: UIViewController {
     
-    let viewModel = FeedViewModel()
-    let feedView = FeedView()
+    private let viewModel = FeedViewModel()
+    private let feedView = FeedView()
     
     override func loadView() {
         super.loadView()

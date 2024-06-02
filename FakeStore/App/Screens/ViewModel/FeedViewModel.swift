@@ -15,9 +15,7 @@ enum FeedViewControllerStates {
 
 class FeedViewModel {
     private (set) var state: Bindable<FeedViewControllerStates> = Bindable(value: .loading)
-    
     private let service = Service()
-    
     private var sectionList: [Section] = []
     
     func numbersOfSection() -> Int {
