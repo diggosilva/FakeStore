@@ -25,7 +25,7 @@ A iOS application written in Swift, that lists products from a fake store, listi
 ## Features
 
 - Dark Mode
-- Modern Collection View
+- Modern Table View
 - MVVM
 - View Code (UIKit)
 - Custom elements
