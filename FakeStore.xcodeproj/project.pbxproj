@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9258385E2BE5B934005108B7 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9258385D2BE5B934005108B7 /* Section.swift */; };
+		926BB8752E26DCD90040DE65 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926BB8742E26DCD90040DE65 /* UIView+Ext.swift */; };
 		92AC28BC2BE3CDA100CC2712 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AC28BB2BE3CDA100CC2712 /* AppDelegate.swift */; };
 		92AC28BE2BE3CDA100CC2712 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AC28BD2BE3CDA100CC2712 /* SceneDelegate.swift */; };
 		92AC28C02BE3CDA100CC2712 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AC28BF2BE3CDA100CC2712 /* FeedViewController.swift */; };
@@ -25,7 +26,8 @@
 
 /* Begin PBXFileReference section */
 		9258385D2BE5B934005108B7 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
-		92AC28B82BE3CDA100CC2712 /* FakeStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = FakeStore.app; path = "/Users/diggosilva/Desktop/005 FakeStore TESTE/build/Debug-iphoneos/FakeStore.app"; sourceTree = "<absolute>"; };
+		926BB8502E26BE000040DE65 /* FakeStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FakeStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		926BB8742E26DCD90040DE65 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		92AC28BB2BE3CDA100CC2712 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92AC28BD2BE3CDA100CC2712 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		92AC28BF2BE3CDA100CC2712 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				92AC28BA2BE3CDA100CC2712 /* FakeStore */,
+				926BB8502E26BE000040DE65 /* FakeStore.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				92AC28D32BE3CFE000CC2712 /* Bindable.swift */,
+				926BB8742E26DCD90040DE65 /* UIView+Ext.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -103,7 +107,7 @@
 		92AC28DC2BE3E1A300CC2712 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				92AC28E12BE3E1E800CC2712 /* 1 Feed */,
+				92AC28E12BE3E1E800CC2712 /* 1-Feed */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -126,7 +130,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		92AC28E12BE3E1E800CC2712 /* 1 Feed */ = {
+		92AC28E12BE3E1E800CC2712 /* 1-Feed */ = {
 			isa = PBXGroup;
 			children = (
 				92F201D52BE3E6840016AA63 /* FeedCell.swift */,
@@ -134,7 +138,7 @@
 				92AC28BF2BE3CDA100CC2712 /* FeedViewController.swift */,
 				92AC28D12BE3CFA200CC2712 /* FeedViewModel.swift */,
 			);
-			path = "1 Feed";
+			path = "1-Feed";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,7 +158,7 @@
 			);
 			name = FakeStore;
 			productName = FakeStore;
-			productReference = 92AC28B82BE3CDA100CC2712 /* FakeStore.app */;
+			productReference = 926BB8502E26BE000040DE65 /* FakeStore.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -218,6 +222,7 @@
 				92AC28C02BE3CDA100CC2712 /* FeedViewController.swift in Sources */,
 				92AC28D82BE3D63700CC2712 /* ProductResponse.swift in Sources */,
 				92AC28BC2BE3CDA100CC2712 /* AppDelegate.swift in Sources */,
+				926BB8752E26DCD90040DE65 /* UIView+Ext.swift in Sources */,
 				92AC28D22BE3CFA200CC2712 /* FeedViewModel.swift in Sources */,
 				92AC28BE2BE3CDA100CC2712 /* SceneDelegate.swift in Sources */,
 				92AC28D62BE3D4B500CC2712 /* Service.swift in Sources */,
@@ -371,6 +376,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -398,6 +404,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
