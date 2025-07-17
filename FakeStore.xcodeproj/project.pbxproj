@@ -107,7 +107,7 @@
 		92AC28DC2BE3E1A300CC2712 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				92AC28E12BE3E1E800CC2712 /* 1 Feed */,
+				92AC28E12BE3E1E800CC2712 /* 1-Feed */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -130,7 +130,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		92AC28E12BE3E1E800CC2712 /* 1 Feed */ = {
+		92AC28E12BE3E1E800CC2712 /* 1-Feed */ = {
 			isa = PBXGroup;
 			children = (
 				92F201D52BE3E6840016AA63 /* FeedCell.swift */,
@@ -138,7 +138,7 @@
 				92AC28BF2BE3CDA100CC2712 /* FeedViewController.swift */,
 				92AC28D12BE3CFA200CC2712 /* FeedViewModel.swift */,
 			);
-			path = "1 Feed";
+			path = "1-Feed";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
