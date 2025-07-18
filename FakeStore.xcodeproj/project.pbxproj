@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		924E1A312E2948D20061BBA3 /* StatefulViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924E1A302E2948D20061BBA3 /* StatefulViewModel.swift */; };
 		9258385E2BE5B934005108B7 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9258385D2BE5B934005108B7 /* Section.swift */; };
 		926BB8752E26DCD90040DE65 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926BB8742E26DCD90040DE65 /* UIView+Ext.swift */; };
 		92AC28BC2BE3CDA100CC2712 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AC28BB2BE3CDA100CC2712 /* AppDelegate.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		924E1A302E2948D20061BBA3 /* StatefulViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulViewModel.swift; sourceTree = "<group>"; };
 		9258385D2BE5B934005108B7 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		926BB8502E26BE000040DE65 /* FakeStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FakeStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		926BB8742E26DCD90040DE65 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 		92AC28DB2BE3E19A00CC2712 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				924E1A302E2948D20061BBA3 /* StatefulViewModel.swift */,
 				92AC28D32BE3CFE000CC2712 /* Bindable.swift */,
 				926BB8742E26DCD90040DE65 /* UIView+Ext.swift */,
 			);
@@ -220,6 +223,7 @@
 				92AC28DA2BE3D65300CC2712 /* ProductFeed.swift in Sources */,
 				9258385E2BE5B934005108B7 /* Section.swift in Sources */,
 				92AC28C02BE3CDA100CC2712 /* FeedViewController.swift in Sources */,
+				924E1A312E2948D20061BBA3 /* StatefulViewModel.swift in Sources */,
 				92AC28D82BE3D63700CC2712 /* ProductResponse.swift in Sources */,
 				92AC28BC2BE3CDA100CC2712 /* AppDelegate.swift in Sources */,
 				926BB8752E26DCD90040DE65 /* UIView+Ext.swift in Sources */,
