@@ -8,12 +8,6 @@
 import UIKit
 
 class FeedView: UIView {
-    lazy var spinner: UIActivityIndicatorView = {
-        let spinner = UIActivityIndicatorView(style: .large)
-        spinner.translatesAutoresizingMaskIntoConstraints = false
-        spinner.startAnimating()
-        return spinner
-    }()
     
     lazy var tableView: UITableView = {
         let table = UITableView()
@@ -23,11 +17,17 @@ class FeedView: UIView {
         return table
     }()
     
+    lazy var spinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: .large)
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        return spinner
+    }()
+    
     lazy var labelError: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Tente novamente mais tarde!"
-        label.font = .systemFont(ofSize: 18, weight: .bold)
+        label.font = .preferredFont(forTextStyle: .callout)
         label.numberOfLines = 0
         label.isHidden = true
         return label
@@ -47,21 +47,22 @@ class FeedView: UIView {
         setConstraints()
     }
     
-    private func setHierarchy () {
+    private func setHierarchy() {
         addSubview(tableView)
         addSubview(spinner)
         addSubview(labelError)
+        backgroundColor = .systemBackground
     }
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            spinner.centerXAnchor.constraint(equalTo: centerXAnchor),
-            spinner.centerYAnchor.constraint(equalTo: centerYAnchor),
-            
             tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            spinner.centerXAnchor.constraint(equalTo: centerXAnchor),
+            spinner.centerYAnchor.constraint(equalTo: centerYAnchor),
             
             labelError.centerXAnchor.constraint(equalTo: centerXAnchor),
             labelError.centerYAnchor.constraint(equalTo: centerYAnchor),

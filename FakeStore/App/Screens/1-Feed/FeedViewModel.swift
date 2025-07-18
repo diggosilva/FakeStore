@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 enum FeedViewControllerStates {
     case loading
@@ -13,10 +14,24 @@ enum FeedViewControllerStates {
     case error
 }
 
-class FeedViewModel {
-    private(set) var state: Bindable<FeedViewControllerStates> = Bindable(value: .loading)
+protocol FeedViewModelProtocol: StatefulViewModel where State == FeedViewControllerStates {
+    func numbersOfSection() -> Int
+    func numberOfRowsInSection( numberOfRowsInSection section: Int) -> Int
+    func cellForRowAt(indexPath: IndexPath) -> ProductFeed
+    func tableView(titleForHeaderInSection section: Int) -> String?
+    func loadDataProducts()
+}
+
+class FeedViewModel: FeedViewModelProtocol {
+    
     private let service = Service()
     private var sectionList: [Section] = []
+    
+    @Published private var state: FeedViewControllerStates = .loading
+    
+    var statePublisher: AnyPublisher<FeedViewControllerStates, Never> {
+        $state.eraseToAnyPublisher()
+    }
     
     func numbersOfSection() -> Int {
         sectionList.count
@@ -44,9 +59,9 @@ class FeedViewModel {
             let sectionWomenSClothing = Section(categoryProduct: .womenSClothing, list: produtos)
             
             self.sectionList.append(contentsOf: [sectionElectronics, sectionJewelery, sectionMenSClothing, sectionWomenSClothing])
-            self.state.value = .loaded
+            self.state = .loaded
         } onError: { error in
-            self.state.value = .error
+            self.state = .error
         }
     }
 }

@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import Combine
 
 class FeedViewController: UIViewController {
     
-    private let viewModel = FeedViewModel()
     private let feedView = FeedView()
+    private let viewModel = FeedViewModel()
+    private var cancellables = Set<AnyCancellable>()
     
     override func loadView() {
         super.loadView()
@@ -20,36 +22,34 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavBar()
-        setDelegate()
+        setDelegatesAndDataSources()
         handleStates()
         viewModel.loadDataProducts()
     }
     
-    private func setDelegate() {
+    private func setNavBar() {
+        navigationItem.title = "PRODUTOS"
+    }
+    
+    private func setDelegatesAndDataSources() {
         feedView.tableView.delegate = self
         feedView.tableView.dataSource = self
     }
     
-    private func setNavBar() {
-        title = "PRODUTOS"
-        view.backgroundColor = .systemBackground
-    }
-    
     private func handleStates() {
-        viewModel.state.bind { states in
-            switch states {
-            case .loading:
-                return self.showLoadingState()
-            case .loaded:
-                return self.showLoadedState()
-            case .error:
-                return self.showErrorState()
-            }
-        }
+        viewModel.statePublisher
+            .receive(on: RunLoop.main)
+            .sink { states in
+                switch states {
+                case .loading: self.showLoadingState()
+                case .loaded: self.showLoadedState()
+                case .error: self.showErrorState()
+                }
+            }.store(in: &cancellables)
     }
     
     private func showLoadingState() {
-        feedView.removeFromSuperview()
+        feedView.spinner.startAnimating()
     }
     
     private func showLoadedState() {
