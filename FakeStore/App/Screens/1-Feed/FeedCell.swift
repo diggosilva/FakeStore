@@ -12,12 +12,12 @@ class FeedCell: UITableViewCell {
     
     static let identifier = "FeedCell"
     
-    lazy var productImageView = buildImageView()
-    lazy var titleLabel = buildLabel(numberOfLines: 2)
-    lazy var descriptionLabel = buildLabel(font: .subheadline, textColor: .secondaryLabel, numberOfLines: 3)
-    lazy var priceLabel = buildLabel(font: .body)
+    private lazy var productImageView = CustomImageView()
+    private lazy var titleLabel = CustomLabel(style: .title)
+    private lazy var descriptionLabel = CustomLabel(style: .subtitle)
+    private lazy var priceLabel = CustomLabel(style: .price)
     
-    lazy var VStack = buildStackView(arrangedSubviews: [titleLabel, descriptionLabel, priceLabel])
+    private lazy var VStack = buildStackView(arrangedSubviews: [titleLabel, descriptionLabel, priceLabel])
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -53,11 +53,14 @@ class FeedCell: UITableViewCell {
     
     func configure(productFeed: ProductFeed) {
         animateCell(alpha: 0)
+        
         guard let url = URL(string: productFeed.image) else { return }
         productImageView.sd_setImage(with: url)
+        
         titleLabel.text = productFeed.title
         descriptionLabel.text = productFeed.description
         priceLabel.text = productFeed.priceFormatted
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
             self.animateCell(alpha: 1)
         }

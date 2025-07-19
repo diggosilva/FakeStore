@@ -10,10 +10,9 @@ import UIKit
 class FeedView: UIView {
     
     lazy var tableView: UITableView = {
-        let table = UITableView()
+        let table = UITableView(frame: .zero, style: .insetGrouped)
         table.translatesAutoresizingMaskIntoConstraints = false
         table.register(FeedCell.self, forCellReuseIdentifier: FeedCell.identifier)
-        table.separatorStyle = .none
         return table
     }()
     
@@ -23,15 +22,7 @@ class FeedView: UIView {
         return spinner
     }()
     
-    lazy var labelError: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Tente novamente mais tarde!"
-        label.font = .preferredFont(forTextStyle: .callout)
-        label.numberOfLines = 0
-        label.isHidden = true
-        return label
-    }()
+    lazy var labelError = CustomLabel(text: "Tente novamente mais tarde!", isHidden: true)
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
