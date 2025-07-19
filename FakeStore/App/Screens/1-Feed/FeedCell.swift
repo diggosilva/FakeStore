@@ -51,15 +51,15 @@ class FeedCell: UITableViewCell {
         ])
     }
     
-    func configure(productFeed: ProductFeed) {
+    func configure(product: Product) {
         animateCell(alpha: 0)
         
-        guard let url = URL(string: productFeed.image) else { return }
+        guard let url = URL(string: product.image) else { return }
         productImageView.sd_setImage(with: url)
         
-        titleLabel.text = productFeed.title
-        descriptionLabel.text = productFeed.description
-        priceLabel.text = productFeed.priceFormatted
+        titleLabel.text = product.title
+        descriptionLabel.text = product.description
+        priceLabel.text = product.priceFormatted
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
             self.animateCell(alpha: 1)

@@ -15,10 +15,10 @@ enum CategoryProduct: String {
 }
 
 class Section {
-    let list: [ProductFeed]
+    let list: [Product]
     let categoryProduct: CategoryProduct
     
-    init(categoryProduct: CategoryProduct, list: [ProductFeed]) {
+    init(categoryProduct: CategoryProduct, list: [Product]) {
         self.categoryProduct = categoryProduct
         self.list = list.filter({ $0.category == categoryProduct.rawValue })
     }
