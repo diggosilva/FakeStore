@@ -17,7 +17,7 @@ enum FeedViewControllerStates {
 protocol FeedViewModelProtocol: StatefulViewModel where State == FeedViewControllerStates {
     func numbersOfSection() -> Int
     func numberOfRowsInSection( numberOfRowsInSection section: Int) -> Int
-    func cellForRowAt(indexPath: IndexPath) -> ProductFeed
+    func cellForRowAt(indexPath: IndexPath) -> Product
     func tableView(titleForHeaderInSection section: Int) -> String?
     func loadDataProducts()
 }
@@ -41,7 +41,7 @@ class FeedViewModel: FeedViewModelProtocol {
         return sectionList[section].list.count
     }
     
-    func cellForRowAt(indexPath: IndexPath) -> ProductFeed {
+    func cellForRowAt(indexPath: IndexPath) -> Product {
         let section = sectionList[indexPath.section]
         let product = section.list[indexPath.row]
         return product

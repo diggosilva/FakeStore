@@ -8,16 +8,14 @@
 import Foundation
 
 protocol ServiceProtocol {
-    var dataTask: URLSessionDataTask? { get set }
+    func getProducts(onSuccess: @escaping([Product]) -> Void, onError: @escaping(Error) -> Void)
 }
 
 final class Service: ServiceProtocol {
-    internal var dataTask: URLSessionDataTask?
-    
-    func getProducts(onSuccess: @escaping([ProductFeed]) -> Void, onError: @escaping(Error) -> Void) {
+    func getProducts(onSuccess: @escaping([Product]) -> Void, onError: @escaping(Error) -> Void) {
         guard let url = URL(string: "https://fakestoreapi.com/products") else { return }
         
-        dataTask = URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
+        URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
             DispatchQueue.main.async {
                 if let response = response as? HTTPURLResponse {
                     print("DEBUG: Status Code.. \(response.statusCode)")
@@ -26,21 +24,19 @@ final class Service: ServiceProtocol {
                 if let data = data {
                     do {
                         let productResponse = try JSONDecoder().decode([ProductResponse].self, from: data)
-                        var productFeed: [ProductFeed] = []
+                        var product: [Product] = []
                         
                         for prod in productResponse {
-                            productFeed.append(ProductFeed(title: prod.title,price: prod.price, description: prod.description,
+                            product.append(Product(id: prod.id, title: prod.title,price: prod.price, description: prod.description,
                                                            category: prod.category.rawValue,image: prod.image, rating: prod.rating.rate))
                         }
-                        onSuccess(productFeed)
-                        print("DEBUG: Produtos.. \(productFeed)")
+                        onSuccess(product)
                     } catch {
                         onError(error)
                         print("DEBUG: Erro ao decodificar Produtos.. \(error.localizedDescription)")
                     }
                 }
             }
-        })
-        dataTask?.resume()
+        }).resume()
     }
 }
