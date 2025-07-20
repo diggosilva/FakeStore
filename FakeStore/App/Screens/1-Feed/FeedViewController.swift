@@ -24,7 +24,7 @@ class FeedViewController: UIViewController {
         setNavBar()
         setDelegatesAndDataSources()
         handleStates()
-        viewModel.loadDataProducts()
+        viewModel.fetchProducts()
     }
     
     private func setNavBar() {
@@ -32,6 +32,7 @@ class FeedViewController: UIViewController {
     }
     
     private func setDelegatesAndDataSources() {
+        feedView.delegate = self
         feedView.tableView.delegate = self
         feedView.tableView.dataSource = self
     }
@@ -61,7 +62,7 @@ class FeedViewController: UIViewController {
         let alert = UIAlertController(title: "Ocorreu um erro!", message: "Tentar novamente?", preferredStyle: .alert)
         let ok = UIAlertAction(title: "Sim", style: .default) { action in
             self.feedView.spinner.startAnimating()
-            self.viewModel.loadDataProducts()
+            self.viewModel.fetchProducts()
         }
         let nok = UIAlertAction(title: "Não", style: .cancel) { action in
             self.feedView.tableView.isHidden = true
@@ -74,13 +75,24 @@ class FeedViewController: UIViewController {
     }
 }
 
-extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.numbersOfSection()
+extension FeedViewController: FeedViewDelegate {
+    func segmentedChanged() {
+        switch feedView.segmentedControl.selectedSegmentIndex {
+        case 0: viewModel.filterProducts(for: nil)
+        case 1: viewModel.filterProducts(for: "men's clothing")
+        case 2: viewModel.filterProducts(for: "women's clothing")
+        case 3: viewModel.filterProducts(for: "electronics")
+        case 4: viewModel.filterProducts(for: "jewelery")
+        default: viewModel.filterProducts(for: nil)
+        }
+        let indexSet = IndexSet(integer: 0)
+        feedView.tableView.reloadSections(indexSet, with: .automatic)
     }
-    
+}
+
+extension FeedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRowsInSection(numberOfRowsInSection: section)
+        return viewModel.numberOfProducts()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -88,12 +100,10 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configure(product: viewModel.cellForRowAt(indexPath: indexPath))
         return cell
     }
-    
+}
+
+extension FeedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return viewModel.tableView(titleForHeaderInSection: section)
     }
 }
