@@ -27,8 +27,13 @@ final class Service: ServiceProtocol {
                         var product: [Product] = []
                         
                         for prod in productResponse {
-                            product.append(Product(id: prod.id, title: prod.title,price: prod.price, description: prod.description,
-                                                           category: prod.category.rawValue,image: prod.image, rating: prod.rating.rate))
+                            product.append(Product(id: prod.id,
+                                                   title: prod.title,
+                                                   price: prod.price,
+                                                   description: prod.description,
+                                                   category: prod.category.rawValue,
+                                                   image: prod.image,
+                                                   rating: prod.rating.rate))
                         }
                         onSuccess(product)
                     } catch {
