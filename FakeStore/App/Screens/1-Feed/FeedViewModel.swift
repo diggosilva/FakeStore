@@ -23,7 +23,6 @@ protocol FeedViewModelProtocol: StatefulViewModel where State == FeedViewControl
 class FeedViewModel: FeedViewModelProtocol {
     
     private let service = Service()
-    private var sectionList: [Section] = []
     private var products: [Product] = []
     
     @Published private var state: FeedViewControllerStates = .loading
