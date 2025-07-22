@@ -12,12 +12,12 @@ extension UIView {
         views.forEach { addSubview($0) }
     }
     
-    func buildStackView(arrangedSubviews: [UIView]) -> UIStackView {
+    func buildStackView(arrangedSubviews: [UIView], axis: NSLayoutConstraint.Axis = .vertical, alpha: CGFloat = 0) -> UIStackView {
         let sv = UIStackView(arrangedSubviews: arrangedSubviews)
         sv.translatesAutoresizingMaskIntoConstraints = false
-        sv.axis = .vertical
+        sv.axis = axis
+        sv.alpha = alpha
         sv.spacing = 8
-        sv.alpha = 0
         return sv
     }
 }
