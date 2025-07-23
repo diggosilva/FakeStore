@@ -26,11 +26,26 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Detalhes do Produto"
+        configureNavigationBar()
+        configureDelegates()
         receivedProduct()
+    }
+    
+    private func configureNavigationBar() {
+        navigationItem.title = "Detalhes do Produto"
+    }
+    
+    private func configureDelegates() {
+        detailsView.delegate = self
     }
     
     private func receivedProduct() {
         detailsView.configure(product: viewModel.product)
+    }
+}
+
+extension DetailsViewController: DetailsViewDelegate {
+    func didTapAddToCartButton() {
+        print("Botão 'Adicionou ao Carrinho' foi tocado para o produto: \(viewModel.product.title)")
     }
 }
