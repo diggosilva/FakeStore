@@ -15,6 +15,8 @@ final class CustomLabel: UILabel {
         case price
         case error
         case custom(font: UIFont, textColor: UIColor)
+        case detailsTitle
+        case detailsSubtitle
     }
     
     init(
@@ -57,6 +59,15 @@ final class CustomLabel: UILabel {
         case .custom(let font, let textColor):
             self.font = font
             self.textColor = textColor
+            
+        case .detailsTitle:
+            self.font = .preferredFont(forTextStyle: .headline)
+            self.numberOfLines = 0
+            
+        case .detailsSubtitle:
+            self.font = .preferredFont(forTextStyle: .subheadline)
+            self.numberOfLines = 0
+            self.textColor = .secondaryLabel
         }
     }
 }
