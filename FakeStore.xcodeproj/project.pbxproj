@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9247FCAB2E3045DE00DDCEB2 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9247FCA92E3045DE00DDCEB2 /* CustomButton.swift */; };
+		9247FCAD2E30478B00DDCEB2 /* SFSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9247FCAC2E30478B00DDCEB2 /* SFSymbols.swift */; };
 		924E1A312E2948D20061BBA3 /* StatefulViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924E1A302E2948D20061BBA3 /* StatefulViewModel.swift */; };
 		925002BD2E2A92E500609CA6 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925002BC2E2A92E500609CA6 /* CustomImageView.swift */; };
 		925002BF2E2A930C00609CA6 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925002BE2E2A930C00609CA6 /* CustomLabel.swift */; };
@@ -29,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9247FCA92E3045DE00DDCEB2 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		9247FCAC2E30478B00DDCEB2 /* SFSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbols.swift; sourceTree = "<group>"; };
 		924E1A302E2948D20061BBA3 /* StatefulViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulViewModel.swift; sourceTree = "<group>"; };
 		925002BC2E2A92E500609CA6 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		925002BE2E2A930C00609CA6 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
@@ -63,6 +67,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9247FCAA2E3045DE00DDCEB2 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				9247FCA92E3045DE00DDCEB2 /* CustomButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 		925002B92E2A92C700609CA6 /* ImageViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +94,7 @@
 		925002BB2E2A92C700609CA6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				9247FCAA2E3045DE00DDCEB2 /* Buttons */,
 				925002B92E2A92C700609CA6 /* ImageViews */,
 				925002BA2E2A92C700609CA6 /* Labels */,
 			);
@@ -132,6 +145,7 @@
 		92AC28DB2BE3E19A00CC2712 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				9247FCAC2E30478B00DDCEB2 /* SFSymbols.swift */,
 				924E1A302E2948D20061BBA3 /* StatefulViewModel.swift */,
 				926BB8742E26DCD90040DE65 /* UIView+Ext.swift */,
 			);
@@ -260,6 +274,7 @@
 			files = (
 				92F201D62BE3E6840016AA63 /* FeedCell.swift in Sources */,
 				92B17AD52E2E8D1C001DA5E2 /* DetailsView.swift in Sources */,
+				9247FCAD2E30478B00DDCEB2 /* SFSymbols.swift in Sources */,
 				92AC28E32BE3E22000CC2712 /* FeedView.swift in Sources */,
 				92B17AFC2E2E9781001DA5E2 /* DetailsViewModel.swift in Sources */,
 				92AC28DA2BE3D65300CC2712 /* Product.swift in Sources */,
@@ -271,6 +286,7 @@
 				926BB8752E26DCD90040DE65 /* UIView+Ext.swift in Sources */,
 				92AC28D22BE3CFA200CC2712 /* FeedViewModel.swift in Sources */,
 				92AC28BE2BE3CDA100CC2712 /* SceneDelegate.swift in Sources */,
+				9247FCAB2E3045DE00DDCEB2 /* CustomButton.swift in Sources */,
 				92AC28D62BE3D4B500CC2712 /* Service.swift in Sources */,
 				925002BD2E2A92E500609CA6 /* CustomImageView.swift in Sources */,
 				92B17AFA2E2E9768001DA5E2 /* DetailsViewController.swift in Sources */,

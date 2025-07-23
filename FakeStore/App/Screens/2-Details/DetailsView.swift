@@ -8,24 +8,36 @@
 import UIKit
 import SDWebImage
 
+protocol DetailsViewDelegate: AnyObject {
+    func didTapAddToCartButton()
+}
+
 class DetailsView: UIView {
     
     private lazy var productImageView = CustomImageView()
-    private lazy var titleLabel = CustomLabel(style: .custom(font: .preferredFont(forTextStyle: .title1), textColor: .label), numberOfLines: 0, textAlignment: .center)
-    private lazy var descriptionLabel = CustomLabel(style: .custom(font: .preferredFont(forTextStyle: .subheadline), textColor: .secondaryLabel), numberOfLines: 0, textAlignment: .justified)
+    private lazy var titleLabel = CustomLabel(style: .detailsTitle, textAlignment: .center)
+    private lazy var descriptionLabel = CustomLabel(style: .detailsSubtitle, textAlignment: .justified)
     private lazy var priceLabel = CustomLabel(style: .price, textAlignment: .left)
     
     private lazy var ratingImage = CustomImageView()
     private lazy var ratingValueLabel = CustomLabel(style: .price, textAlignment: .right)
-    
     private lazy var HStackRating = buildStackView(arrangedSubviews: [ratingImage, ratingValueLabel], axis: .horizontal, alpha: 1)
+    
+    private lazy var addToCartButton = CustomButton(title: "Adicionar ao Carrinho")
+    
+    weak var delegate: DetailsViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
+        addToCartButton.addTarget(self, action: #selector(addToCartButtonTapped), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    
+    @objc func addToCartButtonTapped() {
+        delegate?.didTapAddToCartButton()
+    }
     
     private func setupView() {
         setHierarchy()
@@ -33,7 +45,7 @@ class DetailsView: UIView {
     }
     
     private func setHierarchy() {
-        addSubviews(productImageView, titleLabel, descriptionLabel, priceLabel, HStackRating)
+        addSubviews(productImageView, titleLabel, descriptionLabel, priceLabel, HStackRating, addToCartButton)
         backgroundColor = .systemBackground
     }
     
@@ -58,6 +70,12 @@ class DetailsView: UIView {
             
             HStackRating.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: padding),
             HStackRating.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
+            
+            addToCartButton.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: padding * 2),
+            addToCartButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+            addToCartButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
+            addToCartButton.heightAnchor.constraint(equalToConstant: 50),
+            addToCartButton.bottomAnchor.constraint(lessThanOrEqualTo: safeAreaLayoutGuide.bottomAnchor, constant: -padding)
         ])
     }
     
@@ -71,11 +89,11 @@ class DetailsView: UIView {
         ratingValueLabel.text = "\(product.rating) / 5"
         
         if product.rating <= 1.66 {
-            ratingImage.image = UIImage(systemName: "star")?.withTintColor(.systemYellow, renderingMode: .alwaysOriginal)
+            ratingImage.image = SFSymbols.star
         } else if product.rating <= 3.33 {
-            ratingImage.image = UIImage(systemName: "star.leadinghalf.filled")?.withTintColor(.systemYellow, renderingMode: .alwaysOriginal)
+            ratingImage.image = SFSymbols.starHalf
         } else {
-            ratingImage.image = UIImage(systemName: "star.fill")?.withTintColor(.systemYellow, renderingMode: .alwaysOriginal)
+            ratingImage.image = SFSymbols.starFull
         }
     }
 }
