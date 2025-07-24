@@ -9,6 +9,7 @@ import UIKit
 
 protocol DetailsViewModelProtocol {
     var product: Product { get }
+    func addProductToCart()
 }
 
 class DetailsViewModel: DetailsViewModelProtocol {
@@ -18,4 +19,8 @@ class DetailsViewModel: DetailsViewModelProtocol {
     init(product: Product) {
          self.product = product
      }
+    
+    func addProductToCart() {
+        CartManager.shared.addProduct(product: product)
+    }
 }
