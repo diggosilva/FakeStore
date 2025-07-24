@@ -109,6 +109,7 @@ extension FeedViewController: UITableViewDelegate {
         let selectedProduct = viewModel.cellForRowAt(indexPath: indexPath)
         let detailsViewModel = DetailsViewModel(product: selectedProduct)
         let detailsVC = DetailsViewController(viewModel: detailsViewModel)
+        detailsVC.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(detailsVC, animated: true)
     }
 }
