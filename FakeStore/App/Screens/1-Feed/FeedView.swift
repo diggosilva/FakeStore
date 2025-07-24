@@ -22,9 +22,10 @@ class FeedView: UIView {
     }()
     
     lazy var tableView: UITableView = {
-        let table = UITableView(frame: .zero, style: .insetGrouped)
+        let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
         table.register(FeedCell.self, forCellReuseIdentifier: FeedCell.identifier)
+        table.backgroundColor = .secondarySystemBackground
         return table
     }()
     

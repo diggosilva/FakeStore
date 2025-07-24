@@ -27,6 +27,7 @@
 		92B17AD52E2E8D1C001DA5E2 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B17AD42E2E8D1C001DA5E2 /* DetailsView.swift */; };
 		92B17AFA2E2E9768001DA5E2 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B17AF92E2E9768001DA5E2 /* DetailsViewController.swift */; };
 		92B17AFC2E2E9781001DA5E2 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B17AFB2E2E9781001DA5E2 /* DetailsViewModel.swift */; };
+		92CC22712E327A1B0096432C /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC22702E327A1B0096432C /* TabBarController.swift */; };
 		92EA6B5A2E269D1800642AC0 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 92EA6B592E269D1800642AC0 /* SDWebImage */; };
 		92F201D62BE3E6840016AA63 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F201D52BE3E6840016AA63 /* FeedCell.swift */; };
 /* End PBXBuildFile section */
@@ -54,6 +55,7 @@
 		92B17AD42E2E8D1C001DA5E2 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		92B17AF92E2E9768001DA5E2 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		92B17AFB2E2E9781001DA5E2 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		92CC22702E327A1B0096432C /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		92F201D52BE3E6840016AA63 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,6 +159,7 @@
 		92AC28DC2BE3E1A300CC2712 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				92CC226F2E327A130096432C /* 0-TabBar */,
 				92AC28E12BE3E1E800CC2712 /* 1-Feed */,
 				92B17AD32E2E8CFC001DA5E2 /* 2-Details */,
 			);
@@ -200,6 +203,14 @@
 				92B17AFB2E2E9781001DA5E2 /* DetailsViewModel.swift */,
 			);
 			path = "2-Details";
+			sourceTree = "<group>";
+		};
+		92CC226F2E327A130096432C /* 0-TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				92CC22702E327A1B0096432C /* TabBarController.swift */,
+			);
+			path = "0-TabBar";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,6 +299,7 @@
 				92AC28BC2BE3CDA100CC2712 /* AppDelegate.swift in Sources */,
 				926BB8752E26DCD90040DE65 /* UIView+Ext.swift in Sources */,
 				92AC28D22BE3CFA200CC2712 /* FeedViewModel.swift in Sources */,
+				92CC22712E327A1B0096432C /* TabBarController.swift in Sources */,
 				92AC28BE2BE3CDA100CC2712 /* SceneDelegate.swift in Sources */,
 				9247FCAB2E3045DE00DDCEB2 /* CustomButton.swift in Sources */,
 				926BB2032E31409D00E4B89C /* CartManager.swift in Sources */,
