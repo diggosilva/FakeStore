@@ -12,6 +12,7 @@
 		924E1A312E2948D20061BBA3 /* StatefulViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924E1A302E2948D20061BBA3 /* StatefulViewModel.swift */; };
 		925002BD2E2A92E500609CA6 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925002BC2E2A92E500609CA6 /* CustomImageView.swift */; };
 		925002BF2E2A930C00609CA6 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925002BE2E2A930C00609CA6 /* CustomLabel.swift */; };
+		926BB2032E31409D00E4B89C /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926BB2022E31409D00E4B89C /* CartManager.swift */; };
 		926BB8752E26DCD90040DE65 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926BB8742E26DCD90040DE65 /* UIView+Ext.swift */; };
 		92AC28BC2BE3CDA100CC2712 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AC28BB2BE3CDA100CC2712 /* AppDelegate.swift */; };
 		92AC28BE2BE3CDA100CC2712 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AC28BD2BE3CDA100CC2712 /* SceneDelegate.swift */; };
@@ -36,6 +37,7 @@
 		924E1A302E2948D20061BBA3 /* StatefulViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulViewModel.swift; sourceTree = "<group>"; };
 		925002BC2E2A92E500609CA6 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		925002BE2E2A930C00609CA6 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		926BB2022E31409D00E4B89C /* CartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
 		926BB8502E26BE000040DE65 /* FakeStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FakeStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		926BB8742E26DCD90040DE65 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		92AC28BB2BE3CDA100CC2712 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 		92AC28DD2BE3E1AB00CC2712 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				926BB2022E31409D00E4B89C /* CartManager.swift */,
 				92AC28D52BE3D4B500CC2712 /* Service.swift */,
 			);
 			path = Network;
@@ -227,7 +230,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					92AC28B72BE3CDA100CC2712 = {
 						CreatedOnToolsVersion = 15.0.1;
@@ -287,6 +290,7 @@
 				92AC28D22BE3CFA200CC2712 /* FeedViewModel.swift in Sources */,
 				92AC28BE2BE3CDA100CC2712 /* SceneDelegate.swift in Sources */,
 				9247FCAB2E3045DE00DDCEB2 /* CustomButton.swift in Sources */,
+				926BB2032E31409D00E4B89C /* CartManager.swift in Sources */,
 				92AC28D62BE3D4B500CC2712 /* Service.swift in Sources */,
 				925002BD2E2A92E500609CA6 /* CustomImageView.swift in Sources */,
 				92B17AFA2E2E9768001DA5E2 /* DetailsViewController.swift in Sources */,
@@ -342,6 +346,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 57HYQW6DAG;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -405,6 +410,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 57HYQW6DAG;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -433,7 +439,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 57HYQW6DAG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FakeStore/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -461,7 +466,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 57HYQW6DAG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FakeStore/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
