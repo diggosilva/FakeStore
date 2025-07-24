@@ -46,6 +46,14 @@ class DetailsViewController: UIViewController {
 
 extension DetailsViewController: DetailsViewDelegate {
     func didTapAddToCartButton() {
-        print("Botão 'Adicionou ao Carrinho' foi tocado para o produto: \(viewModel.product.title)")
+        viewModel.addProductToCart()
+        showAddToCartConfirmation()
+    }
+    
+    func showAddToCartConfirmation() {
+        let alert = UIAlertController(title: "Produto Adicionado!", message: "\(viewModel.product.title)", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(ok)
+        present(alert, animated: true)
     }
 }
