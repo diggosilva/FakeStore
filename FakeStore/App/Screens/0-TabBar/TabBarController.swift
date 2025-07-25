@@ -28,23 +28,6 @@ class TabBarController: UITabBarController {
         UITabBar.appearance().tintColor = .label
         UITabBar.appearance().isTranslucent = false
         
-        setViewControllers( [feedVC, cartVC], animated: true)
-    }
-}
-
-class CartViewController: UIViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureNavigationBar()
-    }
-    
-    private func configureNavigationBar() {
-        navigationItem.title = "Seu Carrinho"
-        view.backgroundColor = .yellow
-    }
-    
-    private func configureDelegatesAndDataSources() {
-        
+        viewControllers = [feedVC, cartVC]
     }
 }
